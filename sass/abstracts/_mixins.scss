@@ -2,3 +2,11 @@
   transform: translateY($translateY);
   box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
 }
+
+@mixin clearFix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
