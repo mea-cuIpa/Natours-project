@@ -21,7 +21,8 @@
   }
 
   .col-1-of-3 {
-    width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+    margin-left: 3.8%;
+    width: calc((85% - 2 * #{$gutter-horizontal}) / 3);
   }
 
   .col-1-of-4 {
