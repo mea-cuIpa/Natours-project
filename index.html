@@ -345,16 +345,42 @@
     </section> -->
 
     <script>
+      const clone = obj => Object.assign({}, obj);
+
+      const renameKey = (object, key, newKey) => {
+        const clonedObj = clone(object);
+        const targetKey = clonedObj[key];
+        delete clonedObj[key];
+        clonedObj[newKey] = targetKey;
+        return clonedObj;
+      };
+
       function looseChange(cents) {
-        let sum = 0;
-        for (let i = 0; i < cents.length; i++) {
-          sum += cents[i];
+        let arr = [25, 10, 5, 1],
+          ostatok = cents,
+          res = [],
+          i = 0;
+
+        let ret = {};
+
+        while (i !== arr.length) {
+          if (ostatok - arr[i] >= 0) {
+            ostatok = ostatok - arr[i];
+            ret[i] = (ret[i] || 0) + 1;
+            res.push(arr[i]);
+          } else i++;
         }
 
-        return sum / cents.length;
+        ret = renameKey(ret, '0', 'Quarters');
+        ret = renameKey(ret, '1', 'Dimes');
+        ret = renameKey(ret, '2', 'Nickels');
+        ret = renameKey(ret, '3', 'Pennies');
+
+        console.log(ret);
+        console.log(res);
       }
 
-      console.log(looseChange([600, -600, -600]));
+      console.log(looseChange(7.9));
     </script>
   </body>
 </html>
