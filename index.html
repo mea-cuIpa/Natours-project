@@ -350,12 +350,13 @@
       </div>
       
 
+
       
 
     </section> -->
 
     <script>
-      const clone = obj => Object.assign({}, obj);
+      const clone = (obj) => Object.assign({}, obj);
 
       const renameKey = (object, key, newKey) => {
         const clonedObj = clone(object);
@@ -381,10 +382,10 @@
           } else i++;
         }
 
-        ret = renameKey(ret, '0', 'Quarters');
-        ret = renameKey(ret, '1', 'Dimes');
-        ret = renameKey(ret, '2', 'Nickels');
-        ret = renameKey(ret, '3', 'Pennies');
+        ret = renameKey(ret, "0", "Quarters");
+        ret = renameKey(ret, "1", "Dimes");
+        ret = renameKey(ret, "2", "Nickels");
+        ret = renameKey(ret, "3", "Pennies");
 
         console.log(ret);
         console.log(res);
